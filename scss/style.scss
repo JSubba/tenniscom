@@ -2,8 +2,9 @@
 
 $black-color: #252525;
 $white-color: #f5f5f5;
-$pink-color: #f67c92;
+$lightShade-color: #e6f8f8;
 $teal-color: #03a7a7;
+$darkTeal-color: #037474;
 $small-screen: 575px;
 $medium-screen: 768px;
 $large-screen: 990px;
@@ -15,13 +16,27 @@ $extraLarge-screen: 1200px;
   box-sizing: border-box;
 }
 
+body::-webkit-scrollbar {
+  width: 1em;
+  background-color: $lightShade-color;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: $teal-color;
+  border-radius: 0.5em;
+}
+
 body {
   font-family: "Raleway", sans-serif;
   color: $black-color;
   font-size: 62.5%;
   line-height: 1.5;
-  // width: 100vw;
-  // height: 100vh;
+}
+
+.container {
+  max-width: $extraLarge-screen;
+  margin: 0 auto;
+  padding: 5em 4em;
 }
 
 a {
@@ -34,15 +49,76 @@ li {
   font-size: 1.5em;
 }
 
-.container {
-  max-width: $extraLarge-screen;
-  margin: 0 auto;
+h1 {
+  font-size: 2.2em;
+}
+
+h2 {
+  font-size: 1.8em;
+}
+
+h4 {
+  font-size: 1.4em;
+}
+
+p {
+  font-size: 1.5em;
+}
+
+small {
+  font-size: 1em;
+}
+
+@mixin flash {
+  animation: flash;
+  animation-duration: 1s;
+}
+
+.button {
+  background-color: $teal-color;
+  padding: 0.5em 1em;
+  font-size: 1.6em;
+  font-weight: 600;
+  padding: 0.7em 1.3em;
+  outline: none;
+  cursor: pointer;
+  border: 2px solid $darkTeal-color;
+  border-radius: 0.3em;
+
+  &:hover {
+    @include flash();
+  }
+
+  a {
+    color: $white-color;
+  }
+}
+
+@mixin flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+@mixin card {
+  background-color: $white-color;
+  border: 2px solid $darkTeal-color;
+  border-radius: 0.5em;
+  padding: 2em 1em;
+  margin: 1em 0;
+  transition: transform 0.5s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 
 /* header */
 .header {
   height: 100vh;
-  background-image: url(../images/header-image.jpg);
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../images/header-image.jpg);
   background-position: center;
   background-size: cover;
 
@@ -57,10 +133,11 @@ li {
 
   .header-text {
     max-width: 35em;
-    margin: 20em 5em;
+    margin: 8em 2em;
 
     h1 {
-      font-size: 2.5em;
+      font-size: 3.5em;
+      font-weight: 700;
       color: $white-color;
     }
 
@@ -70,19 +147,16 @@ li {
       color: $white-color;
     }
 
-    button {
-      border: 2px solid $teal-color;
+    .button {
+      background-color: $white-color;
+      border: 2px solid $darkTeal-color;
       border-radius: 0.3em;
       font-size: 1.8em;
-      font-weight: 600;
-      color: $teal-color;
+      font-weight: 700;
       padding: 0.7em 1.3em;
-      outline: none;
-      cursor: pointer;
-      transition: transform 0.5s ease-in-out;
 
-      &:hover {
-        transform: scale(1.1);
+      a {
+        color: $teal-color;
       }
     }
   }
@@ -122,60 +196,263 @@ li {
 
 /* about */
 .about {
-  padding: 5em 0;
+  .about-row {
+    @include flex();
 
-  .about-container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-
-    @media (max-width: $large-screen) {
-      flex-direction: column;
-    }
-
-    .left-box {
-      flex: 0 0 50%;
-
-      @media (max-width: $large-screen) {
-        // align-self: stretch;
-        flex: 0 0 100%;
-      }
+    .left-col {
+      width: 50em;
+      margin-bottom: 2em;
 
       img {
-        width: 90%;
-        display: block;
-        margin: 0 auto;
+        width: 100%;
+        border: none;
+        border-radius: 0.5em;
       }
     }
 
-    .right-box {
-      flex: 0 0 50%;
+    .right-col {
+      width: 40em;
+
+      @media (max-width: $large-screen) {
+        width: 50em;
+      }
 
       .about-text {
-        max-width: 50em;
-        padding-left: 5em;
-
-        h1 {
-          font-size: 2em;
-          margin-bottom: 0.5em;
-        }
-
+        h1,
         p {
-          font-size: 1.6em;
+          line-height: 1.8;
         }
 
         button {
-          margin: 2em 0;
-          padding: 0.5em 1em;
-          font-weight: 600;
-          padding: 0.7em 1.3em;
-          outline: none;
-          cursor: pointer;
-          transition: transform 0.5s ease-in-out;
+          margin: 1em 0 0;
+        }
+      }
+    }
+  }
+}
 
-          &:hover {
-            transform: scale(1.1);
+/* features */
+.features {
+  background-color: $lightShade-color;
+
+  .feature-row {
+    @include flex();
+
+    .feature-col {
+      flex-basis: 30em;
+      @include card();
+      margin: 1em;
+
+      i {
+        width: 40%;
+        display: block;
+        margin: 0 auto 0.2em;
+        font-size: 4em;
+        font-weight: 700;
+        padding: 0.5em;
+        color: $teal-color;
+        text-align: center;
+        border: 2px solid $darkTeal-color;
+        border-radius: 49%;
+      }
+
+      h2,
+      p {
+        text-align: center;
+      }
+    }
+  }
+
+  .button {
+    display: block;
+    margin: 1.5em auto 0;
+  }
+}
+
+/* plans */
+.plans {
+  .plan-row {
+    @include flex();
+
+    .left-col {
+      width: 50em;
+      margin-bottom: 5em;
+
+      p {
+        margin: 1em 0 2em;
+      }
+    }
+
+    .right-col {
+      width: 35em;
+
+      @media (max-width: $medium-screen) {
+        width: 50em;
+      }
+
+      img {
+        width: 100%;
+        border: none;
+        border-radius: 0.5em;
+      }
+    }
+  }
+}
+
+/* coaches */
+.coaches {
+  background-color: $lightShade-color;
+
+  h1 {
+    text-align: center;
+    margin-bottom: 1em;
+  }
+
+  .coach-row {
+    @include flex();
+
+    .coach-col {
+      flex-basis: 2em;
+      @include card();
+      margin: 1.2em;
+
+      img {
+        padding: 2em 4em;
+      }
+
+      h2,
+      p {
+        text-align: center;
+      }
+    }
+  }
+}
+
+/* contact */
+.contact {
+  .contact-row {
+    @include flex();
+
+    .left-col {
+      flex-basis: 40em;
+
+      form {
+        display: flex;
+        flex-direction: column;
+        margin: 1.5em 0 3em;
+
+        input {
+          padding: 0.7em;
+          margin: 0.3em 0;
+          outline: none;
+          box-shadow: none;
+          cursor: pointer;
+        }
+
+        .btn-box {
+          .button {
+            margin: 1em 0;
           }
+
+          p {
+            i {
+              font-size: 1.8em;
+              color: $darkTeal-color;
+              padding: 0.5em;
+
+              &:first-child {
+                padding-left: 0;
+              }
+
+              &:hover {
+                @include flash();
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .right-col {
+      flex-basis: 40em;
+
+      img {
+        width: 80%;
+        display: block;
+        margin: 0 auto;
+        border: none;
+        border-radius: 50%;
+
+        @media (max-width: $large-screen) {
+          width: 100%;
+          margin-top: 1em;
+        }
+      }
+    }
+  }
+}
+
+/* footer */
+.footer {
+  background-color: $darkTeal-color;
+
+  .container {
+    padding: 2em 5em;
+
+    .footer-links {
+      @include flex();
+      flex-wrap: wrap;
+
+      @media (max-width: $small-screen) {
+        justify-content: space-between;
+      }
+
+      .link-title {
+        h4 {
+          color: $lightShade-color;
+        }
+
+        small a {
+          color: $lightShade-color;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
+  hr {
+    width: 100%;
+    border: 1px solid $white-color;
+  }
+
+  .footer-info {
+    width: 100%;
+    padding: 1em 0 1.5em;
+
+    .copyright-text {
+      @include flex();
+      justify-content: center;
+      position: relative;
+
+      span {
+        color: $white-color;
+
+        i {
+          font-size: 1.8em;
+        }
+      }
+
+      a {
+        color: $white-color;
+        position: absolute;
+        right: 0.5em;
+
+        i:hover {
+          @include flash();
+        }
+
+        i {
+          font-size: 3em;
         }
       }
     }

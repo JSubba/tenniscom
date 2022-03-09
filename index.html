@@ -4,17 +4,28 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
     <link rel="stylesheet" href="css/style.css" />
-    <title>Tut-One</title>
+    <title>TennisHachi</title>
+    <link rel="icon" href="images/logo-image.png" />
   </head>
   <body>
-    <section class="header">
+    <!-- header  -->
+    <section id="header" class="header">
       <img src="images/logo-image.png" alt="logo image" class="logo" />
       <div class="container">
         <div class="header-text">
           <h1>
-            Lorem ipsum <br />
-            dolor sit amet consectetur.
+            Tennis HACHI<br />
+            BEST tennis in Shonan.
           </h1>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
@@ -22,18 +33,18 @@
             possimus illo reprehenderit obcaecati qui maxime provident.
             Quibusdam incidunt vitae quasi dicta.
           </p>
-          <button href="#" class="header-btn">Read More</button>
+          <button class="button"><a href="#about">Read More</a></button>
         </div>
       </div>
 
       <nav class="sideNav">
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Features</a></li>
-          <li><a href="#">Courses</a></li>
-          <li><a href="#">Offer</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="#header">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#plans">Plans</a></li>
+          <li><a href="#coaches">Coaches</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
       <img
@@ -43,12 +54,13 @@
       />
     </section>
 
+    <!-- about  -->
     <section id="about" class="about">
-      <div class="container about-container">
-        <div class="left-box">
+      <div class="container about-row">
+        <div class="left-col">
           <img src="images/about-image.jpg" alt="about image" />
         </div>
-        <div class="right-box">
+        <div class="right-col">
           <div class="about-text">
             <h1>About Us</h1>
             <p>
@@ -61,14 +73,187 @@
             <p>
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti
               ipsa maxime earum autem sint ipsam reprehenderit praesentium
-              deserunt voluptas ratione tempora dolore, delectus iste cumque
-              ducimus veritatis atque et porro.
+              deserunt voluptas ratione tempora dolore, delectus iste cumque.
             </p>
-            <a href="#"><button>Learn More</button></a>
+            <button class="button"><a href="#header">Learn More</a></button>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- features  -->
+    <section id="features" class="features">
+      <div class="container">
+        <div class="feature-row">
+          <div class="feature-col">
+            <i class="ri-open-arm-line"></i>
+            <h2>Learn Anywhere</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
+              facilis ullam saepe quidem! Alias possimus nisi saepe officia
+              perferendis veritatis. Commodi harum aperiam numquam molestias!
+            </p>
+          </div>
+          <div class="feature-col">
+            <i class="ri-team-line"></i>
+            <h2>Expert Instructors</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
+              facilis ullam saepe quidem! Alias possimus nisi saepe officia
+              perferendis veritatis. Commodi harum aperiam numquam molestias!
+            </p>
+          </div>
+          <div class="feature-col">
+            <i class="ri-door-open-line"></i>
+            <h2>Unlimited Access</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
+              facilis ullam saepe quidem! Alias possimus nisi saepe officia
+              perferendis veritatis. Commodi harum aperiam numquam molestias!
+            </p>
+          </div>
+        </div>
+        <button class="button"><a href="#contact">Start Free Trial</a></button>
+      </div>
+    </section>
+
+    <!-- plans -->
+    <section id="plans" class="plans">
+      <div class="container plan-row">
+        <div class="left-col">
+          <div class="plan-text">
+            <h1>
+              Browse Our Tennis <br />
+              PLANS
+            </h1>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ipsum
+              recusandae labore voluptatum! Odio at assumenda beatae dicta magni
+              saepe suscipit amet dolorem perspiciatis reiciendis. consectetur
+              adipisicing elit. A ipsum recusandae labore voluptatum! Odio at
+              assumenda beatae dicta magni saepe suscipit amet dolorem
+              perspiciatis!
+            </p>
+          </div>
+          <button class="button"><a href="#header">Find Out More</a></button>
+        </div>
+        <div class="right-col">
+          <img src="images/plan-image.jpg" alt="plans image" />
+        </div>
+      </div>
+    </section>
+
+    <!-- coaches -->
+    <section id="coaches" class="coaches">
+      <div class="container">
+        <h1>Meet Our Coaches</h1>
+        <div class="coach-row">
+          <div class="coach-col">
+            <img src="images/coach-image1.png" alt="coach image" />
+            <h2>Beverly Hanson</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
+              facilis ullam saepe quidem! Alias possimus nisi saepe officia
+              perferendis veritatis. Commodi harum aperiam numquam molestias!
+            </p>
+          </div>
+          <div class="coach-col">
+            <img src="images/coach-image2.png" alt="coach image" />
+            <h2>Taro Mitsubishi</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
+              facilis ullam saepe quidem! Alias possimus nisi saepe officia
+              perferendis veritatis. Commodi harum aperiam numquam molestias!
+            </p>
+          </div>
+          <div class="coach-col">
+            <img src="images/coach-image3.png" alt="coach image" />
+            <h2>John Bowen</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
+              facilis ullam saepe quidem! Alias possimus nisi saepe officia
+              perferendis veritatis. Commodi harum aperiam numquam molestias!
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- contact  -->
+    <section id="contact" class="contact">
+      <div class="container contact-row">
+        <div class="left-col">
+          <h1>
+            Sign Up for our<br />
+            FREE TRIAL
+          </h1>
+          <form>
+            <input type="text" placeholder="name" />
+            <input type="email" placeholder="email" />
+            <input type="password" placeholder="password" />
+            <div class="btn-box">
+              <button class="button">
+                <a href="#header">Start Free Trial</a>
+              </button>
+              <p>
+                <a href="https://www.facebook.com" target="_blank"
+                  ><i class="ri-facebook-fill"></i
+                ></a>
+
+                <i class="ri-twitter-fill"></i>
+                <i class="ri-instagram-fill"></i>
+                <i class="ri-linkedin-fill"></i>
+              </p>
+            </div>
+          </form>
+        </div>
+        <div class="right-col">
+          <img src="images/contact-image.jpg" alt="contact image" />
+        </div>
+      </div>
+    </section>
+
+    <!-- footer  -->
+    <footer id="footer" class="footer">
+      <div class="container">
+        <div class="footer-links">
+          <div class="link-title">
+            <h4>Product</h4>
+            <small><a href="#"> Our Plan</a></small>
+            <br />
+            <small><a href="#">Free Trial</a></small>
+          </div>
+          <div class="link-title">
+            <h4>About Us</h4>
+            <small><a href="#">Request Demo</a></small>
+            <br />
+            <small><a href="#">Blogs</a></small>
+          </div>
+          <div class="link-title">
+            <h4>Support</h4>
+            <small><a href="#">Features</a></small>
+            <br />
+            <small><a href="#">FAQs</a></small>
+          </div>
+          <div class="link-title">
+            <h4>Explore</h4>
+            <small><a href="#">Find Non-profit</a></small>
+            <br />
+            <small><a href="#">Corporate Solution</a></small>
+          </div>
+        </div>
+      </div>
+
+      <hr />
+
+      <div class="footer-info">
+        <div class="copyright-text">
+          <span><i class="ri-billiards-line"></i></span>
+          <span>TennisHachi &copy;copyright || 2022</span>
+          <a href="#header"><i class="ri-arrow-up-circle-line"></i></a>
+        </div>
+      </div>
+    </footer>
 
     <script src="js/script.js"></script>
   </body>

@@ -1,3 +1,10 @@
+// smooth scroll
+let scroll = new SmoothScroll('a[href*="#"]', {
+  speed: 800,
+  speedAsDuration: true,
+});
+
+// nav slide
 const toggleButton = document.querySelector(".toggle-button");
 const sidenav = document.querySelector(".sideNav");
 
